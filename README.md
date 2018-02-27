@@ -7,7 +7,7 @@
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
 )](http://mit-license.org)
 
-STWTabBarController is an UITabBarController subclass in order to have a sliding TabBar Controller with item indicator.
+STWTabBarController is an UITabBarController subclass in order to have a sliding TabBarController with item indicator.
 
 <kbd>
 ![Demo](screenshots/example.gif)
@@ -52,7 +52,7 @@ You can customize in `STWTabBarController`
 
 ## Requirements
 
-This pod requires a deployment target of iOS 11.0 or greater
+This pod requires a deployment target of iOS 9.0 or greater
 
 ## Author
 
