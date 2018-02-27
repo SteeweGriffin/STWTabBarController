@@ -67,7 +67,7 @@ public class STWTabBarController: UITabBarController {
     
     override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.updateSliderApparence()
+        updateSliderApparence()
         DispatchQueue.main.async { self.updateOffsetSlider() }
     }
     
@@ -107,7 +107,7 @@ public class STWTabBarController: UITabBarController {
         widthSliderConstraint?.isActive = true
         
         offsetSliderConstraint?.isActive = false
-        offsetSliderConstraint = slider?.leftAnchor.constraint(equalTo: tabBar.leftAnchor, constant: items[self.selectedIndex].center.x - (itemWidth/2))
+        offsetSliderConstraint = slider?.leftAnchor.constraint(equalTo: tabBar.leftAnchor, constant: items[selectedIndex].center.x - (itemWidth/2))
         offsetSliderConstraint?.isActive = true
     }
     
@@ -115,9 +115,9 @@ public class STWTabBarController: UITabBarController {
     
     public func updateOffsetSlider(_ forcedAt:Int? = nil) {
         
-        self.widthSliderConstraint?.constant = self.itemWidth
-        self.offsetSliderConstraint?.constant = self.items[forcedAt ?? self.selectedIndex].center.x - (self.itemWidth/2)
-        self.tabBar.layoutIfNeeded()
+        widthSliderConstraint?.constant = itemWidth
+        offsetSliderConstraint?.constant = items[forcedAt ?? selectedIndex].center.x - (itemWidth/2)
+        tabBar.layoutIfNeeded()
     }
 }
 
@@ -126,11 +126,11 @@ public class STWTabBarController: UITabBarController {
 extension STWTabBarController: UITabBarControllerDelegate {
     
     public func tabBarController(_ tabBarController: UITabBarController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return interactive?.isIntercationInProgress ?? false ? interactive : nil
+        return self.interactive?.isIntercationInProgress ?? false ? self.interactive : nil
     }
     
     public func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return transationing
+        return self.transationing
     }
     
 }
